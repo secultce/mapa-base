@@ -17,30 +17,30 @@ SET row_security = off;
 
 --
 -- Name: tiger; Type: SCHEMA; Schema: -; Owner: mapas
---
-
-CREATE SCHEMA tiger;
 
 
-ALTER SCHEMA tiger OWNER TO mapas;
+--CREATE SCHEMA tiger;
+
+
+--ALTER SCHEMA tiger OWNER TO mapas;
 
 --
 -- Name: tiger_data; Type: SCHEMA; Schema: -; Owner: mapas
 --
 
-CREATE SCHEMA tiger_data;
+--CREATE SCHEMA tiger_data;
 
 
-ALTER SCHEMA tiger_data OWNER TO mapas;
+--ALTER SCHEMA tiger_data OWNER TO mapas;
 
 --
 -- Name: topology; Type: SCHEMA; Schema: -; Owner: mapas
 --
 
-CREATE SCHEMA topology;
+--CREATE SCHEMA topology;
 
 
-ALTER SCHEMA topology OWNER TO mapas;
+--ALTER SCHEMA topology OWNER TO mapas;
 
 --
 -- Name: SCHEMA topology; Type: COMMENT; Schema: -; Owner: mapas
