@@ -1,5 +1,5 @@
-# Mapas Culturais Base Project
-Este é um projeto base para desenvolvimento de temas e plugins.
+# Mapa Cultural do Ceará
+Repositório para deploy do Mapa Cultural do Ceará
 
 ## Estrutura de arquivos
 - **compose**
