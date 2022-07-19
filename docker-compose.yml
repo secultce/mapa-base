@@ -85,7 +85,7 @@ services:
     
       
   db:
-    image: mdillon/postgis:11
+    image: postgis/postgis:14-master
     restart: always
     environment:
       - POSTGRES_PASSWORD=mapas
