@@ -23,13 +23,18 @@ Repositório para deploy do Mapa Cultural do Ceará
 - **plugins/** - pasta com os plugins utilizados
 - **themes/** - pasta com os temas utilizadosoutros temas
 
+## Clonando o repositório
+Utilize a opção `--recursive` no clone, como no exemplo abaixo:
+```SH
+$ git clone git@github.com:secultce/mapacultural --recursive
+```
 
 ## Ambiente de desenvolvimento
 
 ### Iniciando o ambiente de desenvolvimento
 Para subir o ambiente de desenvolvimento basta entrar na pasta `dev-scripts` e rodar o script `start-dev.sh`.
 
-```
+```SH
 mapacultural/dev-scripts/$ sudo ./start-dev.sh
 ```
 
