@@ -1,10 +1,7 @@
 #!/bin/bash
-docker pull hacklab/mapasculturais:latest
-git pull
+git pull --recurse-submodules
 
-git submodule update
-
-docker-compose build --no-cache
+docker-compose build
 
 ./stop.sh
 ./start.sh
