@@ -75,7 +75,7 @@ services:
       - DB_PASSWORD=mapas
       - DB_USER=mapas
       - DB_DB=mapas
-      - DB_VERSION
+      - DB_VERSION=14
     depends_on:
       - db
       - redis
