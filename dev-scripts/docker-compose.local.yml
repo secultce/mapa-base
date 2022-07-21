@@ -2,8 +2,8 @@ version: '2'
 services:
   mapas:
     build:
-      context: ../
-      dockerfile: compose/local/Dockerfile
+      context: ../core
+      dockerfile: ./compose/local/Dockerfile
     ports:
       - "80:80"
     volumes:
