@@ -11,19 +11,39 @@ services:
       - ../docker-data/public-files:/var/www/html/files
       - ../docker-data/private-files:/var/www/private-files
 
+      - ../core/src/protected:/var/www/html/protected
+
+      - ../compose/common/config.php:/var/www/html/protected/application/conf/config.php
       - ../compose/common/config.d:/var/www/html/protected/application/conf/conf-common.d
       - ../compose/local/config.d:/var/www/html/protected/application/conf/config.d
 
-      # themes and plugins
-      - ../themes/SampleTheme:/var/www/html/protected/application/themes/SampleTheme
-      - ../plugins/SamplePlugin:/var/www/html/protected/application/plugins/SamplePlugin
+      - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
 
+      - ../plugins/Accessibility:/var/www/html/protected/application/plugins/Accessibility
+      - ../plugins/AldirBlanc:/var/www/html/protected/application/plugins/AldirBlanc
+      - ../plugins/AldirBlancDataprev:/var/www/html/protected/application/plugins/AldirBlancDataprev
+      - ../plugins/AldirBlancValidador:/var/www/html/protected/application/plugins/AldirBlancValidador
+      - ../plugins/AldirBlancValidadorFinanceiro:/var/www/html/protected/application/plugins/AldirBlancValidadorFinanceiro
+      - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
+      - ../plugins/RegistrationPayments:/var/www/html/protected/application/plugins/RegistrationPayments
+      - ../plugins/EvaluationMethodTechnical:/var/www/html/protected/application/plugins/EvaluationMethodTechnical
+      - ../plugins/EvaluationMethodSeplag:/var/www/html/protected/application/plugins/EvaluationMethodSeplag
+      - ../plugins/ChatTawkto:/var/www/html/protected/application/plugins/ChatTawkto
+      - ../plugins/pwa:/var/www/html/protected/application/plugins/pwa
+      - ../plugins/Report:/var/www/html/protected/application/plugins/Report
+      - ../plugins/SendEmailUser:/var/www/html/protected/application/plugins/SendEmailUser
+      - ../plugins/RegistrationPaymentsAuxilio:/var/www/html/protected/application/plugins/RegistrationPaymentsAuxilio
+    
     environment:
       - PENDING_PCACHE_RECREATION_INTERVAL=10
       - JOBS_INTERVAL=10
       - REDIS_CACHE=redis
       - APP_MODE=development
 
+      - DB_PASSWORD=mapas
+      - DB_USER=mapas
+      - DB_DB=mapas
+      - DB_VERSION=14
     depends_on:
       - db
       - redis
@@ -37,7 +57,7 @@ services:
     command: --maxmemory 256Mb --maxmemory-policy allkeys-lru
 
   db:
-    image: mdillon/postgis:10
+    image: postgis/postgis:14-master
     environment:
       - POSTGRES_PASSWORD=mapas
       - POSTGRES_USER=mapas
@@ -46,7 +66,7 @@ services:
       - "5432:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - db-data:/var/lib/postgresql/data
+      - ../docker-data/db-data:/var/lib/postgresql/data
 
 volumes:
   db-data:
