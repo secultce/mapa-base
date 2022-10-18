@@ -39,6 +39,7 @@ services:
       - JOBS_INTERVAL=10
       - REDIS_CACHE=redis
       - APP_MODE=development
+      - CACHE_ASSETS_URL=0
 
       - DB_PASSWORD=mapas
       - DB_USER=mapas
