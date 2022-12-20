@@ -12,8 +12,8 @@ return [
         'passwordMustHaveSpecialCharacters' => false,
         'passwordMustHaveNumbers' => true,
         'minimumPasswordLength' => 8,
-        'google-recaptcha-sitekey' => 'env_key',
-        'google-recaptcha-secret' => 'env_secret',
+        'google-recaptcha-sitekey' => env('GOOGLE_RECAPTCHA_SITEKEY'),
+        'google-recaptcha-secret' => env('GOOGLE_RECAPTCHA_SECRET'),
         'sessionTime' => 7200, // int , tempo da sessao do usuario em segundos
         'numberloginAttemp' => '10', // tentativas de login antes de bloquear o usuario por X minutos
         'timeBlockedloginAttemp' => '900', //
