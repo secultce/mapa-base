@@ -20,10 +20,6 @@ case $i in
             BUILD="1"
 	    shift
     ;;
-    -d|--down)
-            DOWN="1"
-	    shift
-    ;;
     -h|--help)
     	    echo "
 	start-dev.sh [-b] [-d]
@@ -41,13 +37,13 @@ if [ $BUILD = "1" ]; then
    docker-compose -f docker-compose.local.yml build
 fi
 
-if [ $DOWN = "1" ]; then
-   docker-compose -f docker-compose.local.yml down
-fi
 
 NAME=mapas
 
+docker-compose -f docker-compose.local.yml down --remove-orphans
+
 docker-compose -f docker-compose.local.yml run --name=$NAME --service-ports  mapas
 
-docker-compose -f docker-compose.local.yml down
+docker-compose -f docker-compose.local.yml down --remove-orphans
+
 cd $CDIR

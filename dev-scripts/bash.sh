@@ -6,6 +6,6 @@ cd $DIR
 
 NAME=mapas
 
-docker exec -it $MAPAS bash
+docker exec -it $NAME bash
 
 cd $CDIR
