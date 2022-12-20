@@ -4,8 +4,8 @@ services:
       image: hacklab/mapasculturais-nginx:latest
       restart: always
       volumes:
-         - ./docker-data/public-files:/var/www/html/files
-         - ./docker-data/assets:/var/www/html/assets
+         - /files/public-files:/var/www/html/files
+         - /files/assets:/var/www/html/assets
       ports:
          - '8080:80'
          - '8443:443'
@@ -24,10 +24,10 @@ services:
       ports:
          - '9000:9000'
       volumes:
-         - ./docker-data/assets:/var/www/html/assets
-         - ./docker-data/public-files:/var/www/html/files
-         - ./docker-data/private-files:/var/www/private-files
-         - ./docker-data/saas-files:/var/www/SaaS
+         - /files/assets:/var/www/html/assets
+         - /files/public-files:/var/www/html/files
+         - /files/private-files:/var/www/private-files
+         - /files/saas-files:/var/www/SaaS
          - ./core/compose/production/php.ini:/usr/local/etc/php/php.ini
 
          - ./themes/Ceara:/var/www/html/protected/application/themes/Ceara
