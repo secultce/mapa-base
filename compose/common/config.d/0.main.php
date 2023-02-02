@@ -8,8 +8,8 @@ $base_domain = @$_SERVER['HTTP_HOST'];
 $base_url = 'https://' . $base_domain . '/';
 
 return [
-    ['app.siteName', 'Mapa Cultural do Ceará'],
-    ['app.siteDescription', "O Mapa Cultural do Ceará é uma plataforma livre, gratuita e colaborativa de mapeamento da Secretaria da Cultura do Estado do Ceará sobre cenário cultural cearense. Ficou mais fácil se programar para conhecer as opções culturais que as cidades cearenses oferecem: shows musicais, espetáculos teatrais, sessões de cinema, saraus, entre outras. Além de conferir a agenda de eventos, você também pode colaborar na gestão da cultura do estado: basta criar seu perfil de agente cultural. A partir deste cadastro, fica mais fácil participar dos editais e programas da Secretaria e também divulgar seus eventos, espaços ou projetos."],
+    'app.siteName' => env('SITE_NAME', 'Mapa Cultural do Ceará'),
+    'app.siteDescription' => env('SITE_DESCRIPTION', "O Mapa Cultural do Ceará é uma plataforma livre, gratuita e colaborativa de mapeamento da Secretaria da Cultura do Estado do Ceará sobre cenário cultural cearense. Ficou mais fácil se programar para conhecer as opções culturais que as cidades cearenses oferecem: shows musicais, espetáculos teatrais, sessões de cinema, saraus, entre outras. Além de conferir a agenda de eventos, você também pode colaborar na gestão da cultura do estado: basta criar seu perfil de agente cultural. A partir deste cadastro, fica mais fácil participar dos editais e programas da Secretaria e também divulgar seus eventos, espaços ou projetos."),
 
     ['themes.active', 'ACTIVE_THEME', 'Ceará'],
 
