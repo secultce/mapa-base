@@ -57,3 +57,16 @@ Este usuário possui permissão de criar, modificar e deletar qualquer objeto do
 
 ## Ambiente de produção
 Para subir o ambiente de produção é necessário criar o arquivo `.env` baseado no arquivo `.env_sample`.
+
+### Obs para os plugins
+
+Uns plugins usam pacotes de terceiros e usam o composer para instalar as suas dependências então deve seguir os seguintes passos para atualizar a pasta vendor.
+
+-  Acessar o container com ./bash.sh
+-  Acessar a pasta dos plugins no seguinte caminho, basta digitar  `cd protected/application/plugins`
+-  Plugins que precisam de atualização (AldirBlanc, EvaluationMethodSeplag, RegistrationPaymentsAuxilio, Report, SendEmailUser)
+-  Se houver a necessidade devido algumas extensões no plugin Report, pode rodar o comando `composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring`
+- Se precisar instalar o php pode seguir a seguinte [instalação](https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/) e ou alterar a versão na seguinte [instalação](https://wallacemaxters.com.br/blog/82/como-trocar-a-versao-do-php-utilizada-no-terminal-no-ubuntu)
+
+
+
