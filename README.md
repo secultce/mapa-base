@@ -57,3 +57,58 @@ Este usuário possui permissão de criar, modificar e deletar qualquer objeto do
 
 ## Ambiente de produção
 Para subir o ambiente de produção é necessário criar o arquivo `.env` baseado no arquivo `.env_sample`.
+
+### Obs para os plugins
+
+Uns plugins usam pacotes de terceiros e usam o composer para instalar as suas dependências então deve seguir os seguintes passos para atualizar a pasta vendor.
+
+-  Acessar o container com ./bash.sh
+-  Acessar a pasta dos plugins no seguinte caminho, basta digitar  `cd protected/application/plugins`
+-  Plugins que precisam de atualização (AldirBlanc, EvaluationMethodSeplag, RegistrationPaymentsAuxilio, Report, SendEmailUser)
+-  Se houver a necessidade devido algumas extensões no plugin Report, pode rodar o comando `composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring`
+- Se precisar instalar o php pode seguir a seguinte [instalação](https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/) e ou alterar a versão na seguinte [instalação](https://wallacemaxters.com.br/blog/82/como-trocar-a-versao-do-php-utilizada-no-terminal-no-ubuntu)
+
+### Obs para usar ambiente produção em localhost
+
+No arquivo **docker-compose.yml**, na base do projeto, modificar as linhas 7 e 8 dentro de:
+
+services:
+   web:
+      image: hacklab/mapasculturais-nginx:latest
+      restart: always
+      volumes:
+         - /files/public-files:/var/www/html/files  MUDAR para - ./docker-data/public-files:/var/www/html/files
+         - /files/assets:/var/www/html/assets       MUDAR para - /docker-data/assets:/var/www/html/assets
+
+e dentro de, ainda no arquivo **docker-compose.yml** :
+
+mapasculturais:
+      env_file:
+         - .env
+      build:
+         context: ./core
+         dockerfile: ./Dockerfile
+      restart: always
+      ports:
+         - '9000:9000'
+      volumes:
+         - /files/assets:/var/www/html/assets   MUDAR para   - ./docker-data/assets:/var/www/html/assets
+         - /files/public-files:/var/www/html/files   MUDAR para  - ./docker-data/public-files:/var/www/html/files
+         - /files/private-files:/var/www/private-files   MUDAR para  - ./docker-data/private-files:/var/www/private-files
+         - /files/saas-files:/var/www/SaaS    MUDAR para  - ./docker-data/saas-files:/var/www/SaaS
+
+Mudar a porta 5438 para 5432 dentro db na linha 93 em **docker-compose.yml** e também no arquivo **entrypoint.sh** :
+
+no **docker-compose.yml**
+ports:
+         - '5438:5432'
+
+no **entrypoint.sh** dentro da linha abaixo na posição "port"
+$pdo = new PDO("pgsql:host={$dbhost};port=5432;dbname={$dbname};user={$dbuser};password={$dbpass}");
+
+na linha 96, ainda dentro de db nos volumes:
+
+volumes:
+         - postgres-data:/var/lib/postgresql/data  MUDAR para   - ./docker-data/db-data:/var/lib/postgresql/data
+
+e por fim, criar arquivo .env com os dados fornecidos
