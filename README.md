@@ -62,11 +62,25 @@ Para subir o ambiente de produção é necessário criar o arquivo `.env` basead
 
 Uns plugins usam pacotes de terceiros e usam o composer para instalar as suas dependências então deve seguir os seguintes passos para atualizar a pasta vendor.
 
+> **Dentro do Container:** Em sintuação que o container subiu pode usar esses passos.
 -  Acessar o container com ./bash.sh
--  Acessar a pasta dos plugins no seguinte caminho, basta digitar  `cd protected/application/plugins`
--  Plugins que precisam de atualização (AldirBlanc, EvaluationMethodSeplag, RegistrationPaymentsAuxilio, Report, SendEmailUser)
--  Se houver a necessidade devido algumas extensões no plugin Report, pode rodar o comando `composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring`
-- Se precisar instalar o php pode seguir a seguinte [instalação](https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/) e ou alterar a versão na seguinte [instalação](https://wallacemaxters.com.br/blog/82/como-trocar-a-versao-do-php-utilizada-no-terminal-no-ubuntu)
+-  Acessar a pasta dos plugins no seguinte caminho, basta digitar  `cd protected/application/plugins` e utilizar o composer do container para atualizar os plugins com o comando `composer.phar update`
+
+> **Observação**
+ #### Plugins que precisam de atualização 
+  1.  AldirBlanc
+  2.  EvaluationMethodSeplag
+  3.  RegistrationPaymentsAuxilio
+  4.  Report
+  5.  SendEmailUser
+
+-  Deve rodar o seguinte comando nos plugins `composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring`
+- Se precisar instalar o php pode seguir a seguinte [instalação](https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/) e ou alterar a versão na seguinte [instalação](https://wallacemaxters.com.br/blog/82/como-trocar-a-versao-do-php-utilizada-no-terminal-no-ubuntu) , se precisar instalar o composer deve seguir esse [tutorial de instalaçao](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04-pt)
+- Se preferir pode usar o arquivo `install.sh` dentro da pasta _**plugins**_
+
+
+
+
 
 
 
