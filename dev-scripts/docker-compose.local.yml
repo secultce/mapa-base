@@ -13,7 +13,7 @@ services:
 
       - ../compose/common/config.d:/var/www/html/protected/application/conf/conf-common.d
       - ../compose/local/config.d:/var/www/html/protected/application/conf/config.d
-
+      - ../compose/local/mc-updates.php:/var/www/html/protected/mc-updates.php
       # themes and plugins
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
@@ -44,7 +44,7 @@ services:
       - POSTGRES_USER=mapas
       - POSTGRES_DB=mapas
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
       - ../docker-data/db-data:/var/lib/postgresql/data
