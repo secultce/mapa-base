@@ -5,7 +5,7 @@ services:
     restart: unless-stopped
     volumes:
        - /dev/null:/var/www/html/index.php
-       - ./docker-data/public-files:/var/www/html./docker-data
+       - ./docker-data/public-files:/var/www/html/files
        - ./docker-data/assets:/var/www/html/assets
 
   ##### versão sem ssl
@@ -31,7 +31,7 @@ services:
     volumes:
        - ./.env:/.env
        - ./docker-data/assets:/var/www/html/assets
-       - ./docker-data/public-files:/var/www/html./docker-data
+       - ./docker-data/public-files:/var/www/html/files
        - ./docker-data/private-files:/var/www/private-files
        - ./docker-data/saas-files:/var/www/SaaS
        
