@@ -2,8 +2,8 @@ version: '2'
 services:
   mapas:
     build:
-      context: ../core
-      dockerfile: ./compose/local/Dockerfile
+      context: ../
+      dockerfile: compose/local/Dockerfile
     ports:
       - "80:80"
     volumes:
@@ -11,43 +11,23 @@ services:
       - ../docker-data/public-files:/var/www/html/files
       - ../docker-data/private-files:/var/www/private-files
 
-      - ../core/src/protected:/var/www/html/protected
-
-      - ../compose/common/config.php:/var/www/html/protected/application/conf/config.php
       - ../compose/common/config.d:/var/www/html/protected/application/conf/conf-common.d
       - ../compose/local/config.d:/var/www/html/protected/application/conf/config.d
-
+      - ../compose/local/mc-updates.php:/var/www/html/protected/mc-updates.php
+      # themes and plugins
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
-
-      - ../plugins/Accessibility:/var/www/html/protected/application/plugins/Accessibility
-      - ../plugins/AldirBlanc:/var/www/html/protected/application/plugins/AldirBlanc
-      - ../plugins/AldirBlancDataprev:/var/www/html/protected/application/plugins/AldirBlancDataprev
-      - ../plugins/AldirBlancValidador:/var/www/html/protected/application/plugins/AldirBlancValidador
-      - ../plugins/AldirBlancValidadorFinanceiro:/var/www/html/protected/application/plugins/AldirBlancValidadorFinanceiro
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
-      - ../plugins/RegistrationPayments:/var/www/html/protected/application/plugins/RegistrationPayments
-      - ../plugins/EvaluationMethodTechnical:/var/www/html/protected/application/plugins/EvaluationMethodTechnical
-      - ../plugins/EvaluationMethodSeplag:/var/www/html/protected/application/plugins/EvaluationMethodSeplag
-      - ../plugins/ChatTawkto:/var/www/html/protected/application/plugins/ChatTawkto
-      - ../plugins/pwa:/var/www/html/protected/application/plugins/pwa
-      - ../plugins/Report:/var/www/html/protected/application/plugins/Report
-      - ../plugins/SendEmailUser:/var/www/html/protected/application/plugins/SendEmailUser
-      - ../plugins/RegistrationPaymentsAuxilio:/var/www/html/protected/application/plugins/RegistrationPaymentsAuxilio
-    
+
     environment:
       - PENDING_PCACHE_RECREATION_INTERVAL=10
       - JOBS_INTERVAL=10
       - REDIS_CACHE=redis
       - APP_MODE=development
       - CACHE_ASSETS_URL=0
-
-      - DB_PASSWORD=mapas
-      - DB_USER=mapas
-      - DB_DB=mapas
-      - DB_VERSION=14
     depends_on:
       - db
       - redis
+      - mailhog
   
     stdin_open: true
     tty: true
@@ -64,10 +44,15 @@ services:
       - POSTGRES_USER=mapas
       - POSTGRES_DB=mapas
     ports:
-      - "5432:5432"
+      - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
       - ../docker-data/db-data:/var/lib/postgresql/data
+
+  mailhog: 
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"
 
 volumes:
   db-data:
