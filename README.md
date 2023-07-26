@@ -120,3 +120,6 @@ na linha 96, ainda dentro de db nos volumes:
    - ./docker-data/db-data:/var/lib/postgresql/data
 
 e por fim, criar arquivo **.env** com os dados fornecidos
+
+### Importante
+Essa branch é um cópia da branch develop na data de hoje
