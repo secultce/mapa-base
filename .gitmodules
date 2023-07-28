@@ -1,9 +1,9 @@
 [submodule "plugins/MultipleLocalAuth"]
 	path = plugins/MultipleLocalAuth
 	url = https://github.com/mapasculturais/plugin-MultipleLocalAuth
-[submodule "core"]
-	path = core
-	url = https://github.com/secultce/mapasculturais.git
+# [submodule "core"]
+# 	path = core
+# 	url = https://github.com/secultce/mapasculturais.git
 [submodule "plugins/Accessibility"]
 	path = plugins/Accessibility
 	url = https://github.com/govce/plugin-Accessibility.git
@@ -46,3 +46,7 @@
 [submodule "EvaluationMethodTechnical"]
 	path = plugins/EvaluationMethodTechnical
 	url = https://github.com/secultce/plugin-EvaluationMethodTechnical.git
+
+[submodule "plugins/PrestacaoDeContas"]
+	path = plugins/PrestacaoDeContas
+	url = https://github.com/secultce/plugin-multiple-phases-PCs.git

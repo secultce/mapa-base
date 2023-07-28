@@ -1,101 +1,87 @@
 version: '3'
 services:
-   web:
-      image: hacklab/mapasculturais-nginx:latest
-      restart: always
-      volumes:
-         - /files/public-files:/var/www/html/files
-         - /files/assets:/var/www/html/assets
-      ports:
-         - '8080:80'
-         - '8443:443'
-      depends_on:
-         - mapasculturais
-      links:
-         - mapasculturais
+  nginx:
+    image: nginx:latest
+    restart: unless-stopped
+    volumes:
+       - /dev/null:/var/www/html/index.php
+       - /files_vm01/public-files:/var/www/html/files
+       - /files_vm01/assets:/var/www/html/assets
 
-   mapasculturais:
-      env_file:
-         - .env
-      build:
-         context: ./core
-         dockerfile: ./Dockerfile
-      restart: always
-      ports:
-         - '9000:9000'
-      volumes:
-         - /files/assets:/var/www/html/assets
-         - /files/public-files:/var/www/html/files
-         - /files/private-files:/var/www/private-files
-         - /files/saas-files:/var/www/SaaS
-         - ./core/compose/production/php.ini:/usr/local/etc/php/php.ini
+  ##### versão sem ssl
+       - ./compose/production/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+       - '8080:80'
+       - "8443:443"
+    depends_on:
+       - mapasculturais
+    links:
+       - mapasculturais
 
-         - ./themes/Ceara:/var/www/html/protected/application/themes/Ceara
 
-         - ./core/src/protected:/var/www/html/protected
-
-         - ./compose/common/config.php:/var/www/html/protected/application/conf/config.php
-         - ./compose/common/config.d:/var/www/html/protected/application/conf/conf-common.d
-         - ./compose/production/config.d:/var/www/html/protected/application/conf/config.d
-
-         - ./plugins/Accessibility:/var/www/html/protected/application/plugins/Accessibility
-         - ./plugins/AldirBlanc:/var/www/html/protected/application/plugins/AldirBlanc
-         - ./plugins/AldirBlancDataprev:/var/www/html/protected/application/plugins/AldirBlancDataprev
-         - ./plugins/AldirBlancValidador:/var/www/html/protected/application/plugins/AldirBlancValidador
-         - ./plugins/AldirBlancValidadorFinanceiro:/var/www/html/protected/application/plugins/AldirBlancValidadorFinanceiro
-         - ./plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
-         - ./plugins/RegistrationPayments:/var/www/html/protected/application/plugins/RegistrationPayments
-         - ./plugins/EvaluationMethodTechnical:/var/www/html/protected/application/plugins/EvaluationMethodTechnical
-         - ./plugins/EvaluationMethodSeplag:/var/www/html/protected/application/plugins/EvaluationMethodSeplag
-         - ./plugins/ChatTawkto:/var/www/html/protected/application/plugins/ChatTawkto
-         - ./plugins/pwa:/var/www/html/protected/application/plugins/pwa
-         - ./plugins/Report:/var/www/html/protected/application/plugins/Report
-         - ./plugins/SendEmailUser:/var/www/html/protected/application/plugins/SendEmailUser
-         - ./plugins/RegistrationPaymentsAuxilio:/var/www/html/protected/application/plugins/RegistrationPaymentsAuxilio
-
-      links:
-         - db
-         - redis
-      environment:
-         - ACTIVE_THEME=Ceara
-
-         - LOG_LEVEL=DEBUG
-         - LOG_ENABLED=true
-
-         - APP_MODE=production
-         - APP_LCODE=pt_BR
+  mapasculturais:
+    env_file:
+       - .env
+    build:
+       context: ./
+       dockerfile: compose/production/Dockerfile
+    restart: unless-stopped
+   #  ports:
+      #  - '9000:9000'
+    volumes:
+       - ./.env:/.env
+       - /files_vm01/assets:/var/www/html/assets
+       - /files_vm01/public-files:/var/www/html/files
+       - /files_vm01/private-files:/var/www/private-files
+       - /files_vm01/saas-files:/var/www/SaaS
+       
+    links:
+       - db
+       - redis
+       - sessions
+    environment:
+       - ACTIVE_THEME=Ceara
+       - LOG_LEVEL=DEBUG
+       - LOG_ENABLED=true
+       - APP_MODE=production
+       - APP_LCODE=pt_BR
          #      - APP_LCODE=pt_BR,es_ES # para selecao do idioma baseado no navegador
+       - REDIS_CACHE=redis
+       - SESSIONS_SAVE_PATH=tcp://redis:6379
+       - PENDING_PCACHE_RECREATION_INTERVAL=5
+       - DB_PASSWORD=mapas
+       - DB_USER=mapas
+       - DB_DB=mapas
+       - DB_VERSION=14
+    depends_on:
+       - db
+       - redis
+       - sessions
 
-         - REDIS_CACHE=redis
-         - SESSIONS_SAVE_PATH=tcp://redis:6379
-         - PENDING_PCACHE_RECREATION_INTERVAL=5
+  redis:
+    image: redis:6
+    command: --maxmemory 256Mb --maxmemory-policy allkeys-lru
+    restart: unless-stopped 
 
-         - DB_PASSWORD=mapas
-         - DB_USER=mapas
-         - DB_DB=mapas
-         - DB_VERSION=14
-      depends_on:
-         - db
-         - redis
+  sessions:
+    image: redis:6
+    command: --maxmemory 384Mb --maxmemory-policy allkeys-lru
+    restart: unless-stopped
+    volumes:
+      - /files_vm01/sessions:/data
 
-   redis:
-      image: redis:6
-      command: --maxmemory 256Mb --maxmemory-policy allkeys-lru
+  db:
+    image: postgis/postgis:14-master
+    restart: always
+    environment:
+       - POSTGRES_PASSWORD=mapas
+       - POSTGRES_USER=mapas
+       - POSTGRES_DB=mapas
+       - POSTGRES_DB_TEST=mapasculturais_test
+   #  ports:
+      #  - '5438:5432'
+    volumes:
+       - /files_vm01/db-data:/var/lib/postgresql/data
+       - ./compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+         #- /files_vm01/db-data:/var/lib/postgresql/data
 
-   db:
-      image: postgis/postgis:14-master
-      restart: always
-      environment:
-         - POSTGRES_PASSWORD=mapas
-         - POSTGRES_USER=mapas
-         - POSTGRES_DB=mapas
-         - POSTGRES_DB_TEST=mapasculturais_test
-      ports:
-         - '5438:5432'
-      volumes:
-         - postgres-data:/var/lib/postgresql/data
-         - ./compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-         #- ./docker-data/db-data:/var/lib/postgresql/data
-
-volumes:
-   postgres-data:
