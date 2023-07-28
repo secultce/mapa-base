@@ -5,7 +5,7 @@ services:
       context: ../
       dockerfile: compose/local/Dockerfile
     ports:
-      - "80:80"
+      - "8500:80"
     volumes:
       - ../docker-data/assets:/var/www/html/assets
       - ../docker-data/public-files:/var/www/html/files
@@ -47,7 +47,7 @@ services:
       - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - ../docker-data/db-data:/var/lib/postgresql/data
+      - ../docker-data/db-data:/var/lib/postgresql/data 750
 
   mailhog: 
     image: mailhog/mailhog
