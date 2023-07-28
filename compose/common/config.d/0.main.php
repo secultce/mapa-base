@@ -43,12 +43,12 @@ return [
 
     ],
 	
-    // 'doctrine.database' => [
-    //      'dbname'    => env('NAME_DB'),
-    // 	 'user'      => env('USER_DB'),
-    // 	 'password'  => env('PASSWORD_DB'),
-    // 	 'host'      => env('HOST_DB'),
-    // 	 'port'      => env('PORT_DB'),
-    // ],
+    'doctrine.database' => [
+         'dbname'    => env('NAME_DB'),
+    	 'user'      => env('USER_DB'),
+    	 'password'  => env('PASSWORD_DB'),
+    	 'host'      => env('HOST_DB'),
+    	 'port'      => env('PORT_DB'),
+    ],
 	
 ];
