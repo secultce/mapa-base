@@ -76,6 +76,8 @@ Uns plugins usam pacotes de terceiros e usam o composer para instalar as suas de
 
 -  Deve rodar o seguinte comando nos plugins `composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring`
 - Se precisar instalar o php pode seguir a seguinte [instalação](https://sempreupdate.com.br/instalar-versoes-diferentes-php-7-2-7-3-7-4-8-0-no-ubuntu/) e ou alterar a versão na seguinte [instalação](https://wallacemaxters.com.br/blog/82/como-trocar-a-versao-do-php-utilizada-no-terminal-no-ubuntu) , se precisar instalar o composer deve seguir esse [tutorial de instalaçao](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-composer-on-ubuntu-20-04-pt)
+- Se desejar instalar o php e suas extensões acimas que foram iguinoradas rode o comando: 
+`sudo apt install php7.2 php7.2-gd php7.2-dom  php7.2-simplexml php7.2-xml php7.2-xmlreader php7.2-xmlwriter php7.2-zip php7.2-mbstring`
 - Se preferir pode usar o arquivo `install.sh` dentro da pasta _**plugins**_
 
 
