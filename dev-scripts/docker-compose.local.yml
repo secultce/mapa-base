@@ -5,8 +5,11 @@ services:
       context: ../
       dockerfile: compose/local/Dockerfile
     ports:
-      - "8500:80"
+      - "8080:80"
+    env_file:
+      - .env
     volumes:
+      - ../.env:/.env
       - ../docker-data/assets:/var/www/html/assets
       - ../docker-data/public-files:/var/www/html/files
       - ../docker-data/private-files:/var/www/private-files
@@ -39,20 +42,16 @@ services:
 
   db:
     image: postgis/postgis:14-master
+    restart: always
     environment:
       - POSTGRES_PASSWORD=mapas
       - POSTGRES_USER=mapas
       - POSTGRES_DB=mapas
-    ports:
-      - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - ../docker-data/db-data:/var/lib/postgresql/data 750
+      - ../docker-data/db-data:/var/lib/postgresql/data
 
   mailhog: 
     image: mailhog/mailhog
     ports:
       - "8025:8025"
-
-volumes:
-  db-data:
