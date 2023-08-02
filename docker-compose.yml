@@ -34,7 +34,7 @@ services:
        - /files_vm01/public-files:/var/www/html/files
        - /files_vm01/private-files:/var/www/private-files
        - /files_vm01/saas-files:/var/www/SaaS
-       
+       - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
     links:
        - db
        - redis
