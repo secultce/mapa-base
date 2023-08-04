@@ -8,13 +8,8 @@ return [
 
         'MultipleLocalAuth' => ['namespace' => 'MultipleLocalAuth'],
         'SamplePlugin' => ['namespace' => 'SamplePlugin'],
-
         'SendEmailUser' => ['namespace' => 'SendEmailUser'],
         'Report' => ['namespace' => 'Report'],
-        'MultipleLocalAuth' => ['namespace' => 'MultipleLocalAuth'],
-        'EvaluationMethodSimple' => ['namespace' => 'EvaluationMethodSimple'],
-        'EvaluationMethodDocumentary' => ['namespace' => 'EvaluationMethodDocumentary'],
-        'EvaluationMethodTechnical' => ['namespace' => 'EvaluationMethodTechnical'],
         'EvaluationMethodSeplag' => [
             'namespace' => 'EvaluationMethodSeplag',
             'config' => [
@@ -41,13 +36,13 @@ return [
             ]
         ],
         'Accessibility' => ['namespace' => 'Accessibility'],
-        //'PWA' => ['namespace' => 'PWA'],
-        'ChatTawkto' => [
-            'namespace' => 'ChatTawkto',
-            'config' => [
-                'chat_link_url' => 'https://tawk.to/chat/5f35c9424c7806354da63dc9/default',
-            ],
-        ],
+        'PWA' => ['namespace' => 'PWA'],
+        // 'ChatTawkto' => [
+        //     'namespace' => 'ChatTawkto',
+        //     'config' => [
+        //         'chat_link_url' => 'https://tawk.to/chat/5f35c9424c7806354da63dc9/default',
+        //     ],
+        // ],
         'RegistrationPaymentsAuxilio' => [
             'namespace' => 'RegistrationPaymentsAuxilio',
             'config' => [
