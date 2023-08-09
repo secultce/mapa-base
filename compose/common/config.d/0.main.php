@@ -22,7 +22,7 @@ return [
     'mailer.user' => env('MAILER_USER'),
     'mailer.psw' => env('MAILER_PASS'),
     'mailer.server' => env('MAILER_SERVER'),
-    'mailer.protocol' => null,
+    'mailer.protocol' => env('MAILER_PROTOCOL'),
     'mailer.port'   => env('MAILER_PORT'),
     'mailer.from' => env('MAILER_FROM'),
     

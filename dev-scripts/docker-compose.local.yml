@@ -1,12 +1,16 @@
 version: '2'
 services:
   mapas:
+    env_file:
+      - .env
     build:
       context: ../
       dockerfile: compose/local/Dockerfile
+    
     ports:
       - "8500:80"
     volumes:
+      - ./.env:/.env
       - ../docker-data/assets:/var/www/html/assets
       - ../docker-data/public-files:/var/www/html/files
       - ../docker-data/private-files:/var/www/private-files
@@ -27,7 +31,7 @@ services:
     depends_on:
       - db
       - redis
-      - mailhog
+      # - mailhog
   
     stdin_open: true
     tty: true
@@ -47,12 +51,9 @@ services:
       - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - ../docker-data/db-data:/var/lib/postgresql/data 750
+      - ../docker-data/db-data:/var/lib/postgresql/data
 
-  mailhog: 
-    image: mailhog/mailhog
-    ports:
-      - "8025:8025"
-
-volumes:
-  db-data:
+  # mailhog: 
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - "8025:8025"
