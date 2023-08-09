@@ -1,5 +1,8 @@
-cd AldirBlanc/ && composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring && cd ..
-cd EvaluationMethodSeplag/ && composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring && cd ..
-cd RegistrationPaymentsAuxilio/ && composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring && cd ..
-cd Report/ && composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring && cd ..
-cd SendEmailUser/ && composer update --ignore-platform-req=ext-gd --ignore-platform-req=ext-dom --ignore-platform-req=ext-simplexml --ignore-platform-req=ext-xml --ignore-platform-req=ext-xmlreader --ignore-platform-req=ext-xmlwriter  --ignore-platform-req=ext-zip --ignore-platform-req=ext-mbstring && cd ..
+sudo apt install -y php7.2 php7.2-gd php7.2-dom 
+sudo apt install -y php7.2-simplexml php7.2-xml php7.2-xmlreader php7.2-xmlwriter php7.2-zip php7.2-mbstring
+
+cd AldirBlanc/ && composer update && cd ..
+cd EvaluationMethodSeplag/ && composer update  && cd ..
+cd RegistrationPaymentsAuxilio/ && composer update  && cd ..
+cd Report/ && composer update  && cd ..
+cd SendEmailUser/ && composer update  && cd ..
