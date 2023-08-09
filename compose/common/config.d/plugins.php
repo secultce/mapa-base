@@ -6,6 +6,7 @@ return [
         'EvaluationMethodSimple' => ['namespace' => 'EvaluationMethodSimple'],
         'EvaluationMethodDocumentary' => ['namespace' => 'EvaluationMethodDocumentary'],
 
+        'LocationStateCity' => ['namespace' => 'LocationStateCity'],
         'MultipleLocalAuth' => ['namespace' => 'MultipleLocalAuth'],
         'SamplePlugin' => ['namespace' => 'SamplePlugin'],
         'SendEmailUser' => ['namespace' => 'SendEmailUser'],

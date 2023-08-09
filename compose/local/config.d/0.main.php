@@ -4,7 +4,7 @@ $__process_assets = false;
 
 return [
     'app.verifiedSealsIds' => '1',
-    'cep.token' => '',
+    'cep.token' => '1a61e4d00bf9c6a85e3b696ef7014372',
     
     'slim.debug' => true,
 
