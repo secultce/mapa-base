@@ -19,6 +19,8 @@ services:
       - ../compose/local/config.d:/var/www/html/protected/application/conf/config.d
       - ../compose/local/mc-updates.php:/var/www/html/protected/mc-updates.php
       # themes and plugins
+      - ../core/src/protected/application/lib/MapasCulturais/Controllers/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Opportunity.php
+      - ../core/src/protected/application/lib/MapasCulturais/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
 
@@ -48,7 +50,7 @@ services:
       - POSTGRES_USER=mapas
       - POSTGRES_DB=mapas
     ports:
-      - "5436:5432"
+      - "5432:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
       - db-data:/var/lib/postgresql/data
