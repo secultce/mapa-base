@@ -36,8 +36,7 @@ services:
        - /files_vm01/saas-files:/var/www/SaaS
        - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
        # arquivos temporários
-       - ./core/src/protected/application/lib/MapasCulturais/Controllers/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Opportunity.php
-       - ./core/src/protected/application/lib/MapasCulturais/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
+       - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
     links:
        - db
        - redis
