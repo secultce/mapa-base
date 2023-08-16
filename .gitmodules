@@ -7,6 +7,7 @@
 [submodule "plugins/Accessibility"]
 	path = plugins/Accessibility
 	url = https://github.com/govce/plugin-Accessibility.git
+	branch = master
 [submodule "plugins/AldirBlanc"]
 	path = plugins/AldirBlanc
 	url = https://github.com/govce/plugin-AldirBlanc.git
@@ -25,6 +26,7 @@
 [submodule "themes/Ceara"]
 	path = themes/Ceara
 	url = https://github.com/secultce/theme-Ceara.git
+	branch = master
 [submodule "plugins/RegistrationPaymentsAuxilio"]
 	path = plugins/RegistrationPaymentsAuxilio
 	url = https://github.com/secultce/plugin-FinancialAssistance2021.git
