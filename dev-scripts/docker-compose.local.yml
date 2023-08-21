@@ -8,7 +8,7 @@ services:
       dockerfile: compose/local/Dockerfile
     
     ports:
-      - "8500:80"
+      - "8080:80"
     volumes:
       - ./.env:/.env
       - ../docker-data/assets:/var/www/html/assets
@@ -21,6 +21,7 @@ services:
       # themes and plugins
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
+
 
     environment:
       - PENDING_PCACHE_RECREATION_INTERVAL=10
@@ -51,9 +52,12 @@ services:
       - "5436:5432"
     volumes:
       - ../compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-      - ../docker-data/db-data:/var/lib/postgresql/data
+      - db-data:/var/lib/postgresql/data
 
   # mailhog: 
   #   image: mailhog/mailhog
   #   ports:
   #     - "8025:8025"
+
+volumes:
+  db-data:
