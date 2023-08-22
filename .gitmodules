@@ -53,3 +53,7 @@
 [submodule "plugins/LocationStateCity"]
 	path = plugins/LocationStateCity
 	url = https://github.com/secultce/plugin-LocationStateCity.git
+[submodule "plugin/EditRegistration"]
+	path = plugin/EditRegistration
+	url = https://github.com/secultce/plugin-EditarInscricao.git
+	branch = main
