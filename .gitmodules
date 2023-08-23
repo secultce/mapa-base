@@ -25,6 +25,7 @@
 [submodule "themes/Ceara"]
 	path = themes/Ceara
 	url = https://github.com/secultce/theme-Ceara.git
+	branch = master
 [submodule "plugins/RegistrationPaymentsAuxilio"]
 	path = plugins/RegistrationPaymentsAuxilio
 	url = https://github.com/secultce/plugin-FinancialAssistance2021.git
@@ -53,3 +54,7 @@
 [submodule "plugins/LocationStateCity"]
 	path = plugins/LocationStateCity
 	url = https://github.com/secultce/plugin-LocationStateCity.git
+[submodule "plugins/EditRegistration"]
+	path = plugins/EditRegistration
+	url = https://github.com/secultce/plugin-EditarInscricao.git
+	branch = main
