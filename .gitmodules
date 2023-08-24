@@ -22,9 +22,7 @@
 [submodule "plugins/RegistrationPayments"]
 	path = plugins/RegistrationPayments
 	url = https://github.com/govce/plugin-RegistrationPayments.git
-[submodule "themes/Ceara"]
-	path = themes/Ceara
-	url = https://github.com/secultce/theme-Ceara.git
+
 [submodule "plugins/RegistrationPaymentsAuxilio"]
 	path = plugins/RegistrationPaymentsAuxilio
 	url = https://github.com/secultce/plugin-FinancialAssistance2021.git
@@ -58,3 +56,7 @@
 	path = plugins/EditRegistration
 	url = https://github.com/secultce/plugin-EditarInscricao.git
 	branch = main
+[submodule "themes/Ceara"]
+	path = themes/Ceara
+	url = https://github.com/secultce/theme-Ceara.git
+	branch = master
