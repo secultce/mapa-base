@@ -58,3 +58,58 @@
 	path = plugins/EditRegistration
 	url = https://github.com/secultce/plugin-EditarInscricao.git
 	branch = main
+[submodule "plugins/MultipleLocalAuth"]
+	path = plugins/MultipleLocalAuth
+	url = https://github.com/mapasculturais/plugin-MultipleLocalAuth
+[submodule "core"]
+	path = core
+	url = https://github.com/secultce/mapasculturais.git
+[submodule "plugins/Accessibility"]
+	path = plugins/Accessibility
+	url = https://github.com/govce/plugin-Accessibility.git
+[submodule "plugins/AldirBlanc"]
+	path = plugins/AldirBlanc
+	url = https://github.com/govce/plugin-AldirBlanc.git
+[submodule "plugins/AldirBlancDataprev"]
+	path = plugins/AldirBlancDataprev
+	url = https://github.com/govce/plugin-AldirBlancDataprev.git
+[submodule "plugins/AldirBlancValidador"]
+	path = plugins/AldirBlancValidador
+	url = https://github.com/govce/plugin-AldirBlancValidador.git
+[submodule "plugins/AldirBlancValidadorFinanceiro"]
+	path = plugins/AldirBlancValidadorFinanceiro
+	url = https://github.com/govce/plugin-AldirBlancValidadorFinanceiro.git
+[submodule "plugins/RegistrationPayments"]
+	path = plugins/RegistrationPayments
+	url = https://github.com/govce/plugin-RegistrationPayments.git
+[submodule "themes/Ceara"]
+	path = themes/Ceara
+	url = https://github.com/secultce/theme-Ceara.git
+[submodule "plugins/RegistrationPaymentsAuxilio"]
+	path = plugins/RegistrationPaymentsAuxilio
+	url = https://github.com/secultce/plugin-FinancialAssistance2021.git
+[submodule "plugins/SendEmailUser"]
+	path = plugins/SendEmailUser
+	url = https://github.com/secultce/Plugin-Alerta-Inscricoes-em-Rascunho.git
+[submodule "plugins/Report"]
+	path = plugins/Report
+	url = https://github.com/secultce/plugin-reports-documentary-technical.git
+[submodule "plugins/pwa"]
+	path = plugins/pwa
+	url = https://github.com/govce/plugin-PWA.git
+[submodule "plugins/ChatTawkto"]
+	path = plugins/ChatTawkto
+	url = https://github.com/govce/plugin-ChatTawkto.git
+[submodule "EvaluationMethodSeplag"]
+	path = plugins/EvaluationMethodSeplag
+	url = https://github.com/secultce/plugin-EvaluationMethodSeplag.git
+[submodule "EvaluationMethodTechnical"]
+	path = plugins/EvaluationMethodTechnical
+	url = https://github.com/secultce/plugin-EvaluationMethodTechnical.git
+
+[submodule "plugins/PrestacaoDeContas"]
+	path = plugins/PrestacaoDeContas
+	url = https://github.com/secultce/plugin-multiple-phases-PCs.git
+[submodule "plugins/LocationStateCity"]
+	path = plugins/LocationStateCity
+	url = https://github.com/secultce/plugin-LocationStateCity.git
