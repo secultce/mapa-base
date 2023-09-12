@@ -48,13 +48,13 @@
 	path = plugins/EvaluationMethodTechnical
 	url = https://github.com/secultce/plugin-EvaluationMethodTechnical.git
 
-[submodule "plugins/PrestacaoDeContas"]
-	path = plugins/PrestacaoDeContas
-	url = https://github.com/secultce/plugin-multiple-phases-PCs.git
-[submodule "plugins/LocationStateCity"]
-	path = plugins/LocationStateCity
-	url = https://github.com/secultce/plugin-LocationStateCity.git
-[submodule "plugins/EditRegistration"]
-	path = plugins/EditRegistration
-	url = https://github.com/secultce/plugin-EditarInscricao.git
-	branch = main
+# [submodule "plugins/PrestacaoDeContas"]
+# 	path = plugins/PrestacaoDeContas
+# 	url = https://github.com/secultce/plugin-multiple-phases-PCs.git
+# [submodule "plugins/LocationStateCity"]
+# 	path = plugins/LocationStateCity
+# 	url = https://github.com/secultce/plugin-LocationStateCity.git
+# [submodule "plugins/EditRegistration"]
+# 	path = plugins/EditRegistration
+# 	url = https://github.com/secultce/plugin-EditarInscricao.git
+# 	branch = main
