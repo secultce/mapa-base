@@ -35,6 +35,8 @@ services:
        - /files_vm01/private-files:/var/www/private-files
        - /files_vm01/saas-files:/var/www/SaaS
        - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
+       # arquivos temporários
+       - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
     links:
        - db
        - redis
@@ -49,10 +51,6 @@ services:
        - REDIS_CACHE=redis
        - SESSIONS_SAVE_PATH=tcp://redis:6379
        - PENDING_PCACHE_RECREATION_INTERVAL=5
-       - DB_PASSWORD=mapas
-       - DB_USER=mapas
-       - DB_DB=mapas
-       - DB_VERSION=14
     depends_on:
        - db
        - redis
@@ -81,7 +79,7 @@ services:
    #  ports:
       #  - '5438:5432'
     volumes:
-       - /files_vm01/db-data:/var/lib/postgresql/data
+       - /files_vm01/db-data:/var/lib/postgresql/data 750
        - ./compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
          #- /files_vm01/db-data:/var/lib/postgresql/data
 
