@@ -34,8 +34,9 @@ services:
        - /files_vm01/public-files:/var/www/html/files
        - /files_vm01/private-files:/var/www/private-files
        - /files_vm01/saas-files:/var/www/SaaS
-       - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
        # arquivos temporários
+       - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
+       - ./themes/Ceara/layouts/parts/registration-field-types/fields/brPhone.php:/var/www/html/protected/application/lib/modules/RegistrationFieldTypes/layouts/parts/registration-field-types/fields/brPhone.php
        - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
     links:
        - db
@@ -55,7 +56,8 @@ services:
        - db
        - redis
        - sessions
-
+       - mailhog
+       
   redis:
     image: redis:6
     command: --maxmemory 256Mb --maxmemory-policy allkeys-lru
@@ -77,9 +79,17 @@ services:
        - POSTGRES_DB=mapas
        - POSTGRES_DB_TEST=mapasculturais_test
    #  ports:
-      #  - '5438:5432'
+   #     - '5436:5432'
     volumes:
-       - /files_vm01/db-data:/var/lib/postgresql/data 750
        - ./compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-         #- /files_vm01/db-data:/var/lib/postgresql/data
+       - /files_vm01/db-data:/var/lib/postgresql/data
+      #  - db-data:/var/lib/postgresql/data
+       
+#   mailhog: 
+#      image: mailhog/mailhog
+#      ports:
+#        - "8025:8025"
+       
+# volumes:
+#   db-data:
 

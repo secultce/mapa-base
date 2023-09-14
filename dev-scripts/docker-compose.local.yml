@@ -22,7 +22,8 @@ services:
       - ../themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
-      - ../plugins/EditRegistration:/var/www/html/protected/application/plugins/EditRegistration
+      - ../themes/Ceara/layouts/parts/registration-field-types/fields/brPhone.php:/var/www/html/protected/application/lib/modules/RegistrationFieldTypes/layouts/parts/registration-field-types/fields/brPhone.php
+       
     environment:
       - PENDING_PCACHE_RECREATION_INTERVAL=10
       - JOBS_INTERVAL=10
