@@ -51,3 +51,7 @@
 	path = plugins/LocationStateCity
 	url = https://github.com/secultce/plugin-LocationStateCity.git
 	branch = main
+[submodule "core"]
+	path = core
+	url = https://github.com/mapasculturais/mapasculturais.git
+	branch = develop
