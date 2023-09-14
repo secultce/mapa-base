@@ -56,7 +56,7 @@ services:
        - db
        - redis
        - sessions
-       - mailhog
+      #  - mailhog
        
   redis:
     image: redis:6
