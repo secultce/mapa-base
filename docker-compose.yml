@@ -37,6 +37,7 @@ services:
        - ./themes/Ceara/layouts/parts/charts/line.php:/var/www/html/protected/application/lib/modules/Charts/layouts/parts/charts/line.php
        # arquivos temporários
        - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
+       - ./themes/Ceara/Controllers/Registration.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Registration.php
     links:
        - db
        - redis
