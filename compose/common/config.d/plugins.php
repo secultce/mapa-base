@@ -5,8 +5,8 @@ return [
         'EvaluationMethodTechnical' => ['namespace' => 'EvaluationMethodTechnical'],
         'EvaluationMethodSimple' => ['namespace' => 'EvaluationMethodSimple'],
         'EvaluationMethodDocumentary' => ['namespace' => 'EvaluationMethodDocumentary'],
-
         'EditRegistration' => ['namespace' => 'EditRegistration'],
+        'EditOpportunityType' => ['namespace' => 'EditOpportunityType'],
         'LocationStateCity' => ['namespace' => 'LocationStateCity'],
         'MultipleLocalAuth' => ['namespace' => 'MultipleLocalAuth'],
         'SamplePlugin' => ['namespace' => 'SamplePlugin'],
