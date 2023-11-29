@@ -80,7 +80,7 @@ services:
    #  ports:
       #  - '5438:5432'
     volumes:
-       - ./docker-data/db-data:/var/lib/postgresql/data 750
+      #  - ./docker-data/db-data:/var/lib/postgresql/data 750
        - ./compose/local/dump.sql:/docker-entrypoint-initdb.d/dump.sql
-         #- ./docker-data/db-data:/var/lib/postgresql/data
+       - ./docker-data/db-data:/var/lib/postgresql/data
 
