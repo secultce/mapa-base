@@ -9,6 +9,7 @@ return [
         'EditOpportunityType' => ['namespace' => 'EditOpportunityType'],
         'LocationStateCity' => ['namespace' => 'LocationStateCity'],
         'MultipleLocalAuth' => ['namespace' => 'MultipleLocalAuth'],
+        'Recourse' => ['namespace' => 'Recourse'],
         'SamplePlugin' => ['namespace' => 'SamplePlugin'],
         'SendEmailUser' => ['namespace' => 'SendEmailUser'],
         'Report' => ['namespace' => 'Report'],
