@@ -39,6 +39,7 @@ services:
        - ./themes/Ceara/layouts/parts/registration-field-types/fields/brPhone.php:/var/www/html/protected/application/lib/modules/RegistrationFieldTypes/layouts/parts/registration-field-types/fields/brPhone.php
        - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
        - ./themes/Ceara/Controllers/Registration.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Registration.php
+       - ./themes/Ceara/Controllers/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Opportunity.php
     links:
        - db
        - redis
