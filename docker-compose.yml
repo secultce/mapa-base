@@ -39,6 +39,7 @@ services:
        - ./themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
        - ./themes/Ceara/Controllers/Registration.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Registration.php
        - ./themes/Ceara/Controllers/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Controllers/Opportunity.php
+       - ./themes/Ceara/ApiOutputs/Json.php:/var/www/html/protected/application/lib/MapasCulturais/ApiOutputs/Json.php
     links:
        - db
        - redis
