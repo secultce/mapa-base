@@ -20,6 +20,8 @@ services:
       - ../compose/local/mc-updates.php:/var/www/html/protected/mc-updates.php
       # themes and plugins
       - ../themes/Ceara/Entities/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Entities/Opportunity.php
+      - ../themes/Ceara/Controller/Opportunity.php:/var/www/html/protected/application/lib/MapasCulturais/Controller/Opportunity.php
+      - ../themes/Ceara/ApiOutputs/Json.php:/var/www/html/protected/application/lib/MapasCulturais/ApiOutputs/Json.php
       - ../themes/Ceara:/var/www/html/protected/application/themes/Ceara
       - ../plugins/MultipleLocalAuth:/var/www/html/protected/application/plugins/MultipleLocalAuth
       - ../plugins/EditRegistration:/var/www/html/protected/application/plugins/EditRegistration
