@@ -39,6 +39,7 @@ return [
             ]
         ],
         'Accessibility' => ['namespace' => 'Accessibility'],
+        'OpinionManagement' => ['namespace' => 'OpinionManagement'],
         'PWA' => ['namespace' => 'PWA'],
         // 'ChatTawkto' => [
         //     'namespace' => 'ChatTawkto',
