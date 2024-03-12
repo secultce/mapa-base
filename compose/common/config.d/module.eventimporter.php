@@ -7,6 +7,10 @@ $app = App::i();
 return [
     'module.EventImporter' => [
         'enabled' => function () use ($app) {
+            if($app->user->is("admin")) {
+                return true;
+            }
+
             $agentSealRelations = $app->repo('AgentSealRelation')->findBy(['seal' => 12]);
             $agents = array_map(function($sealRelation) {
                 return $sealRelation->owner;
